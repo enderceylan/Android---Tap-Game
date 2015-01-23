@@ -1,7 +1,9 @@
 package com.example.username.tapgame;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,8 +16,15 @@ public class HighScoreActivity extends Activity {
     private Button returnButton;
     private String[] names = {"","","","",""};
     private int[] scores = {0,0,0,0,0};
+    private TextView titleText;
     private TextView[] nameText;
     private TextView[] scoreText;
+
+    public static final Typeface VAGRoundedBlack(Context context)
+    {
+        Typeface typeface = Typeface.createFromAsset(context.getApplicationContext().getAssets(), "fonts/vag-rounded-black.ttf");
+        return typeface;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +37,11 @@ public class HighScoreActivity extends Activity {
             names = bundle.getStringArray("nameArray");
         }
         returnButton = (Button) findViewById(R.id.returnButton);
+        returnButton.setTypeface(VAGRoundedBlack(this));
         returnButton.setOnClickListener(returnListener);
+
+        titleText = (TextView) findViewById(R.id.scoreBoardText);
+        titleText.setTypeface(VAGRoundedBlack(this));
 
         nameText = new TextView[5];
         scoreText = new TextView[5];
@@ -49,6 +62,11 @@ public class HighScoreActivity extends Activity {
         scoreText[2] = (TextView) findViewById(R.id.score3);
         scoreText[3] = (TextView) findViewById(R.id.score4);
         scoreText[4] = (TextView) findViewById(R.id.score5);
+
+        for(int i = 0; i < 5; i++) {
+            nameText[i].setTypeface(VAGRoundedBlack(this));
+            scoreText[i].setTypeface(VAGRoundedBlack(this));
+        }
 
         setBoard();
     }

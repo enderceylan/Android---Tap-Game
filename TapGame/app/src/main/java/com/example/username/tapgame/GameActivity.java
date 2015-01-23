@@ -2,10 +2,13 @@ package com.example.username.tapgame;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,6 +29,12 @@ public class GameActivity extends Activity {
     private Button bigButton;
     private TextView scoreText;
 
+    public static final Typeface VAGRoundedBlack(Context context)
+    {
+        Typeface typeface = Typeface.createFromAsset(context.getApplicationContext().getAssets(), "fonts/vag-rounded-black.ttf");
+        return typeface;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +47,9 @@ public class GameActivity extends Activity {
             names = bundle.getStringArray("nameArray");
         }
         bigButton = (Button) findViewById(R.id.bigButton);
+        bigButton.setTypeface(VAGRoundedBlack(this));
         scoreText = (TextView) findViewById(R.id.score);
+        scoreText.setTypeface(VAGRoundedBlack(this));
         bigButton.setOnClickListener(bigListener);
         handler = new Handler();
         handler.post(runnable);
@@ -124,7 +135,8 @@ public class GameActivity extends Activity {
         index = highScoreIndex(score);
         if (index >= 0)
         {
-            AlertDialog alert = new AlertDialog.Builder(GameActivity.this).create();
+            ContextThemeWrapper ctw = new ContextThemeWrapper( this, R.style.CustomDialogTheme);
+            AlertDialog alert = new AlertDialog.Builder(ctw).create();
             LayoutInflater inflater = GameActivity.this.getLayoutInflater();
             alert.setTitle("New High Score!");
             alert.setMessage("Enter your name into the leaderboard!");

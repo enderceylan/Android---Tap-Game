@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">TapGame</string>
+    <string name="app_name">Tap Fever</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="mainTitle">Tap Game</string>
+    <string name="mainTitle">Tap Fever</string>
     <string name="mainButton">PLAY</string>
     <string name="instructionsButton">INSTRUCTIONS</string>
     <string name="title_activity_game">GameActivity</string>
@@ -21,15 +21,15 @@
     <string name="highScoreInstructions">Enter your name into the leaderboard!</string>
     <string name="highScoreButton">HIGH SCORES</string>
     <string name="nameField">Enter name here</string>
-    <string name="name1">aaa </string>
+    <string name="name1">  </string>
     <string name="score1">0 </string>
-    <string name="name2">aaa </string>
+    <string name="name2">  </string>
     <string name="score2">0 </string>
-    <string name="name3">aaa </string>
+    <string name="name3">  </string>
     <string name="score3">0 </string>
-    <string name="name4">aaa </string>
+    <string name="name4">  </string>
     <string name="score4">0 </string>
-    <string name="name5">aaa </string>
+    <string name="name5">  </string>
     <string name="score5">0 </string>
 
 </resources>
